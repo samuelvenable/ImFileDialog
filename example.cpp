@@ -9,6 +9,7 @@
 #include <windows.h>
 #endif
 
+#define IFD_USE_OPENGL
 #include <GL/glew.h>
 #if defined(__APPLE__)
 #include <OpenGL/gl.h>
