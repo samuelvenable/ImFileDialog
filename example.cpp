@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {
     if (ImGui::Button("Open directory"))
       ifd::FileDialog::Instance().Open("DirectoryOpenDialog", "Open a directory", "");
     if (ImGui::Button("Save file"))
-      ifd::FileDialog::Instance().Save("ShaderSaveDialog", "Save a shader", "*.sprj {.sprj}");
+      ifd::FileDialog::Instance().Save("ShaderSaveDialog", "Save a shader", "*.sprj {.sprj},.*");
     ImGui::End();
 
     // file dialogs
