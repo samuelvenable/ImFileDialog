@@ -50,7 +50,6 @@ set_target_properties(ImFileDialogExample PROPERTIES
 )
 
 # include directories
-set(INCLUDE_DIRS libs/)
 target_include_directories(ImFileDialogExample PRIVATE ${SDL2_INCLUDE_DIRS} ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
 target_include_directories(ImFileDialogExample PRIVATE libs libs/imgui)
 
