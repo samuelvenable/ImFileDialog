@@ -17,7 +17,7 @@ Here's an example on how to use ImFileDialog:
 
 1. You need to set the CreateTexture and DeleteTexture function
 ```c++
-ifd::FileDialog::Instance().CreateTexture = [](uint8_t* data, int w, int h, char fmt) -> void* {
+ifd::FileDialog::Instance().CreateTexture = [](uint8_t *data, int w, int h, char fmt) -> void * {
 	GLuint tex;
 
 	glGenTextures(1, &tex);
@@ -30,9 +30,9 @@ ifd::FileDialog::Instance().CreateTexture = [](uint8_t* data, int w, int h, char
 	glGenerateMipmap(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	return (void*)(std::uintptr_t)tex;
+	return (void *)(std::uintptr_t)tex;
 };
-ifd::FileDialog::Instance().DeleteTexture = [](void* tex) {
+ifd::FileDialog::Instance().DeleteTexture = [](void *tex) {
 	GLuint texID = (GLuint)tex;
 	glDeleteTextures(1, &texID);
 };
