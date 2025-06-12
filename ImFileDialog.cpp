@@ -43,8 +43,6 @@
 #include "ImFileDialog.h"
 #include "ImFileDialogMacros.h"
 
-#include <filedialogs.hpp>
-
 #ifndef IMGUI_DEFINE_MATH_OPERATORS
 #define IMGUI_DEFINE_MATH_OPERATORS
 #endif
@@ -642,7 +640,7 @@ namespace ifd {
         m_calledOpenPopup = true;
       }
 
-      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar)) {
+      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove)) {
         m_renderFileDialog();
         ImGui::EndPopup();
       }
@@ -1799,7 +1797,7 @@ namespace ifd {
       if (m_selectedFileItem >= static_cast<int>(m_content.size()) || m_content.size() == 0)
         ImGui::CloseCurrentPopup();
       else {
-        const FileData& data = m_content[m_selectedFileItem];
+        const FileData& data = m_content[m_content.size() - 1];
         ImGui::TextWrapped(IFD_ARE_YOU_SURE_YOU_WANT_TO_OVERWRITE, m_inputTextbox);
         if (ImGui::Button(IFD_YES)) {
           m_isOpen = false;
