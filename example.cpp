@@ -5,7 +5,7 @@
 #include <ghc/filesystem.hpp>
 #include <time.h>
 
-#ifdef _WIN32
+#if defined(_WIN32)
 #include <windows.h>
 #endif
 
@@ -24,8 +24,7 @@
 // SDL defines main
 #undef main
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char *argv[]) {
   bool run = true;
   srand(time(nullptr));
 
@@ -43,7 +42,7 @@ int main(int argc, char* argv[])
 
   // create the window
   int wndWidth = 1200, wndHeight = 800;
-  SDL_Window* wnd = SDL_CreateWindow("File Dialog", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, wndWidth, wndHeight, windowFlags);
+  SDL_Window *wnd = SDL_CreateWindow("File Dialog", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, wndWidth, wndHeight, windowFlags);
   
   // create the GL context
   SDL_GLContext glContext = SDL_GL_CreateContext(wnd);
@@ -68,7 +67,7 @@ int main(int argc, char* argv[])
   ImGui_ImplOpenGL3_Init();
 
   // ImFileDialog requires you to set the CreateTexture and DeleteTexture
-  ifd::FileDialog::Instance().CreateTexture = [](uint8_t* data, int w, int h, char fmt) -> void* {
+  ifd::FileDialog::Instance().CreateTexture = [](uint8_t *data, int w, int h, char fmt) -> void * {
     GLuint tex;
 
     glGenTextures(1, &tex);
@@ -81,9 +80,9 @@ int main(int argc, char* argv[])
     glGenerateMipmap(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    return (void*)(std::uintptr_t)tex;
+    return (void *)(std::uintptr_t)tex;
   };
-  ifd::FileDialog::Instance().DeleteTexture = [](void* tex) {
+  ifd::FileDialog::Instance().DeleteTexture = [](void *tex) {
     GLuint texID = (GLuint)((uintptr_t)tex);
     glDeleteTextures(1, &texID);
   };
