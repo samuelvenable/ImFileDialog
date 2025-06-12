@@ -112,11 +112,11 @@ int main(int argc, char *argv[]) {
 
     // Simple window
     ImGui::Begin("Control Panel");
-    if (ImGui::Button("Open file"))
+    if (ImGui::Button("Open File"))
       ifd::FileDialog::Instance().Open("ShaderOpenDialog", "Open a Shader", "Image Files (*.png;*.jpg;*.jpeg;*.bmp;*.tga){.png,.jpg,.jpeg,.bmp,.tga},.*", true);
-    if (ImGui::Button("Open directory"))
+    if (ImGui::Button("Open Directory"))
       ifd::FileDialog::Instance().Open("DirectoryOpenDialog", "Open a Directory", "");
-    if (ImGui::Button("Save file"))
+    if (ImGui::Button("Save File"))
       ifd::FileDialog::Instance().Save("ShaderSaveDialog", "Save a Shader", "Shader Files (*.sprj){.sprj},.*");
     ImGui::End();
 
