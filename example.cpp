@@ -15,7 +15,7 @@
 #else
 #include <GL/gl.h>
 #endif
-#if defined(_WIN32)
+#if (defined(_WIN32) && defined(_MSC_VER))
 #pragma comment(lib, "opengl32.lib")
 #endif
 
