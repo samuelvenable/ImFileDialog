@@ -3,6 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb")
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # source code
 set(SOURCES
