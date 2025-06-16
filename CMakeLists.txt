@@ -41,6 +41,7 @@ set_property(CACHE OpenGL_GL_PREFERENCE PROPERTY STRINGS GLVND LEGACY)
 find_package(OpenGL REQUIRED)
 
 # glew
+list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows")
 find_package(GLEW REQUIRED)
 
 # create executable
