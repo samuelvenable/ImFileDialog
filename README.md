@@ -30,10 +30,10 @@ ifd::FileDialog::Instance().CreateTexture = [](uint8_t *data, int w, int h, char
   glGenerateMipmap(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D, 0);
 
-  return (void *)(std::uintptr_t)tex;
+  return (void *)(uintptr_t)tex;
 };
 ifd::FileDialog::Instance().DeleteTexture = [](void *tex) {
-  GLuint texID = (GLuint)tex;
+  GLuint texID = (GLuint)(uintptr_t)tex;
   glDeleteTextures(1, &texID);
 };
 ```
