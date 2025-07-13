@@ -25,7 +25,7 @@
 */
 
 #pragma once
-#include <apifilesystem/filesystem.hpp>
+#include "filesystem.hpp"
 #define SET_LOCALE_ENVIRON(name, default_value) ((!ngs::fs::environment_get_variable(name).empty()) ? ngs::fs::environment_get_variable(name).c_str() : std::string(default_value).c_str())
 #ifndef IFD_QUICK_ACCESS
 #define IFD_QUICK_ACCESS SET_LOCALE_ENVIRON("IMGUI_QUICK_ACCESS", "Quick Access")
@@ -92,6 +92,12 @@
 #endif
 #ifndef IFD_FILE_NAME_WITHOUT_COLON
 #define IFD_FILE_NAME_WITHOUT_COLON SET_LOCALE_ENVIRON("IMGUI_FILE_NAME_WITHOUT_COLON", "File name")
+#endif
+#ifndef IFD_DIRECTORY_NAME_WITH_COLON
+#define IFD_DIRECTORY_NAME_WITH_COLON SET_LOCALE_ENVIRON("IMGUI_DIRECTORY_NAME_WITH_COLON", "Directory name:")
+#endif
+#ifndef IFD_DIRECTORY_NAME_WITHOUT_COLON
+#define IFD_DIRECTORY_NAME_WITHOUT_COLON SET_LOCALE_ENVIRON("IMGUI_DIRECTORY_NAME_WITHOUT_COLON", "Directory name")
 #endif
 #ifndef IFD_SAVE
 #define IFD_SAVE SET_LOCALE_ENVIRON("IMGUI_SAVE", "Save")

@@ -3,6 +3,7 @@
  MIT License
 
  Copyright © 2021 dfranx
+ Copyright © 2021-2025 Samuel Venable
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -42,6 +43,8 @@
 
 #include "ImFileDialog.h"
 #include "ImFileDialogMacros.h"
+
+#include <filedialogs.hpp>
 
 #ifndef IMGUI_DEFINE_MATH_OPERATORS
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -578,6 +581,16 @@ namespace ifd {
     m_treeCache.clear();
   }
 
+  static bool colon_dir = false;
+
+  std::string with_colon() {
+    return ((colon_dir) ? IFD_DIRECTORY_NAME_WITH_COLON : IFD_FILE_NAME_WITH_COLON);
+  }
+
+  std::string without_colon() {
+    return ((colon_dir) ? IFD_DIRECTORY_NAME_WITHOUT_COLON : IFD_FILE_NAME_WITHOUT_COLON);
+  }
+
   bool FileDialog::Save(const std::string& key, const std::string& title, const std::string& filter, const std::string& startingFile, const std::string& startingDir) {
     if (!m_currentKey.empty())
       return false;
@@ -592,6 +605,7 @@ namespace ifd {
     m_selectedFileItem = -1;
     m_isMultiselect = false;
     m_type = IFD_DIALOG_SAVE;
+    colon_dir = false;
 
     strcpy(m_inputTextbox, startingFile.substr(0, 1023).c_str());
 
@@ -618,6 +632,7 @@ namespace ifd {
     m_selectedFileItem = -1;
     m_isMultiselect = isMultiselect;
     m_type = filter.empty() ? IFD_DIALOG_DIRECTORY : IFD_DIALOG_FILE;
+    colon_dir = filter.empty();
 
     strcpy(m_inputTextbox, startingFile.substr(0, 1023).c_str());
 
@@ -640,7 +655,8 @@ namespace ifd {
         m_calledOpenPopup = true;
       }
 
-      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar)) {
+      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar | 
+        ((ngs::fs::environment_get_variable("IMGUI_DIALOG_NOBORDER") == std::to_string(1)) ? ImGuiWindowFlags_NoTitleBar : 0) | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove)) {
         m_renderFileDialog();
         ImGui::EndPopup();
       }
@@ -1938,10 +1954,10 @@ namespace ifd {
     }
     
     /***** BOTTOM BAR *****/
-    ImGui::Text(IFD_FILE_NAME_WITH_COLON);
+    ImGui::Text(with_colon().c_str());
     ImGui::SameLine();
     ghc::filesystem::path pathToCheckExistenceFor = m_currentDirectory / m_inputTextbox;
-    if (ImGui::InputTextEx("##file_input", IFD_FILE_NAME_WITHOUT_COLON, m_inputTextbox, 1024,
+    if (ImGui::InputTextEx("##file_input", without_colon().c_str(), m_inputTextbox, 1024,
       ImVec2((m_type != IFD_DIALOG_DIRECTORY) ? -250.0f : -FLT_MIN, 0), ImGuiInputTextFlags_EnterReturnsTrue)) {
       std::string filename(m_inputTextbox);
       m_finalize(filename);

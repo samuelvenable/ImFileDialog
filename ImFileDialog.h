@@ -3,6 +3,7 @@
  MIT License
 
  Copyright © 2021 dfranx
+ Copyright © 2021-2025 Samuel Venable
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -38,8 +39,9 @@
 #define NOMINMAX
 #endif
 
-#include <apifilesystem/filesystem.hpp>
-#include <apifilesystem/ghc/filesystem.hpp>
+#include <filesystem.hpp>
+
+#include <ghc/filesystem.hpp>
 
 #define IFD_DIALOG_FILE      0
 #define IFD_DIALOG_DIRECTORY 1
