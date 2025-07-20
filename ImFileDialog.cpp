@@ -1655,10 +1655,10 @@ namespace ifd {
 
         // sort
         if (ImGuiTableSortSpecs *sortSpecs = ImGui::TableGetSortSpecs()) {
-                    if (sortSpecs->SpecsDirty) {
+          if (sortSpecs->SpecsDirty) {
             sortSpecs->SpecsDirty = false;
             m_sortContent(sortSpecs->Specs->ColumnUserID, sortSpecs->Specs->SortDirection);
-                    }
+          }
         }
 
         // content
