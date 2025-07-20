@@ -87,9 +87,5 @@ make
 
 ![Table view](https://user-images.githubusercontent.com/30801537/107225891-afbc1e00-6a19-11eb-8551-6caa4c2173d1.gif)
 
-## TODO
- * selecting multiple files
- * preview pane / layout options
-
 ## LICENSE
 ImFileDialog is licensed under MIT license. See [LICENSE](./LICENSE) for more details. 
