@@ -2,21 +2,25 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb")
+if(APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb -ObjC++")
+else() 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb")
+endif()
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # source code
 set(SOURCES
-	example.cpp
-	ImFileDialog.cpp
+    example.cpp
+    ImFileDialog.cpp
 
-	libs/imgui/imgui.cpp
-	libs/imgui/imgui_widgets.cpp
-	libs/imgui/imgui_draw.cpp
-	libs/imgui/imgui_tables.cpp
-	libs/imgui/backends/imgui_impl_opengl3.cpp
-	libs/imgui/backends/imgui_impl_sdl2.cpp
-	libs/apifilesystem/filesystem.cpp
+    libs/imgui/imgui.cpp
+    libs/imgui/imgui_widgets.cpp
+    libs/imgui/imgui_draw.cpp
+    libs/imgui/imgui_tables.cpp
+    libs/imgui/backends/imgui_impl_opengl3.cpp
+    libs/imgui/backends/imgui_impl_sdl2.cpp
+    libs/apifilesystem/filesystem.cpp
 	
 )
 
@@ -79,5 +83,5 @@ elseif(UNIX AND NOT APPLE)
 		target_link_libraries(ImFileDialogExample lunasvg PkgConfig::PKG_SDL2 PkgConfig::PKG_GTK3 PkgConfig::PKG_GIO2 PkgConfig::PKG_GLIB2 ${GLEW_LIBRARIES} ${CMAKE_DL_LIBS} pthread)
 	endif()
 elseif(APPLE)
-	target_link_libraries(ImFileDialogExample GLEW::GLEW ${SDL2_LIBRARIES} ${CMAKE_DL_LIBS})
+	target_link_libraries(ImFileDialogExample "-framework CoreFoundation -framework AppKit" GLEW::GLEW ${SDL2_LIBRARIES} ${CMAKE_DL_LIBS})
 endif()
