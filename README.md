@@ -1,7 +1,7 @@
 # ImFileDialog
 A simple file dialog library for Dear ImGui.
 
-This library supports favorites, default native icon theme, image previews, zooming in, etc...
+This library supports favorites, default native icon theme, image previews, zooming in, etc.
 
 ## Usage
 
