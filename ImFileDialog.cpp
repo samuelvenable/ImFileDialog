@@ -92,7 +92,7 @@ struct HumanReadable {
   private: friend
   std::ostream& operator<<(std::ostream& os, HumanReadable hr) {
     int i{};
-    double mantissa = hr.size;
+    double mantissa = (double)hr.size;
     for (; mantissa >= 1024.; mantissa /= 1024., ++i) { }
     mantissa = std::ceil(mantissa * 10.) / 10.;
     os << mantissa << " " << "BKMGTPE"[i];
@@ -2028,3 +2028,4 @@ namespace ifd {
       m_isOpen = false;
   }
 }
+
