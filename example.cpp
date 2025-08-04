@@ -304,11 +304,6 @@ int main(int argc, char *argv[]) {
     if (ifd::FileDialog::Instance().IsDone("DirectoryOpenDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         std::string res = ifd::FileDialog::Instance().GetResult().u8string();
-        #if defined(_WIN32)
-        if (!res.empty() && res.back() != '\\') res.push_back('\\');
-        #else
-        if (!res.empty() && res.back() != '/') res.push_back('/');
-        #endif
         printf("DIRECTORY[%s]\n", res.c_str());
       }
       ifd::FileDialog::Instance().Close();
