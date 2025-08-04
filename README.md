@@ -1,17 +1,9 @@
 # ImFileDialog
 A simple file dialog library for Dear ImGui.
 
-This library supports favorites, actual Windows icons, image previews, zooming in, etc...
-
-**DISCLAIMER**: This library was designed and built for use in [SHADERed](https://github.com/dfranx/SHADERed) - it uses older version of Dear ImGui so some changes might be required to get it compiled. The way the file filter  and the library itself looks was also limited due to me not wanting to break [SHADERed](https://github.com/dfranx/SHADERed)'s plugins.
-
-## Requirements
-This library uses C++17's `std::filesystem` but it also needs these libraries:
- * [Dear ImGui](https://github.com/ocornut/imgui/)
- * [stb_image.h](https://github.com/nothings/stb/blob/master/stb_image.h)
+This library supports favorites, default native icon theme, image previews, zooming in, etc...
 
 ## Usage
-To use ImFileDialog in your project, just add ImFileDialog.h and ImFileDialog.cpp to it.
 
 Here's an example on how to use ImFileDialog:
 
