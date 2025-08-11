@@ -205,7 +205,7 @@ int main(int argc, char *argv[]) {
   Uint32 windowFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI;
 
   // create the window
-  int wndWidth = 1200, wndHeight = 800;
+  int wndWidth = 1024, wndHeight = 768;
   SDL_Window *wnd = SDL_CreateWindow("File Dialog", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, wndWidth, wndHeight, windowFlags);
   SDL_MaximizeWindow(wnd);
   SDL_SetWindowResizable(wnd, SDL_FALSE);
