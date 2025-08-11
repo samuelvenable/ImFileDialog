@@ -208,7 +208,6 @@ int main(int argc, char *argv[]) {
   int wndWidth = 1024, wndHeight = 768;
   SDL_Window *wnd = SDL_CreateWindow("File Dialog", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, wndWidth, wndHeight, windowFlags);
   SDL_MaximizeWindow(wnd);
-  SDL_SetWindowResizable(wnd, SDL_FALSE);
   
   // create the GL context
   SDL_GLContext glContext = SDL_GL_CreateContext(wnd);
