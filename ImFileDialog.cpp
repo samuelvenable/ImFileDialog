@@ -2044,6 +2044,3 @@ namespace ifd {
       m_isOpen = false;
   }
 }
-
-
-
