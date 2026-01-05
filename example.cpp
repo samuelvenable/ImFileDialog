@@ -235,6 +235,19 @@ int main(int argc, char *argv[]) {
       io.Fonts->AddFontFromFileTTF((ngs::fs::executable_get_directory() + std::string(fonts[i])).c_str(), 20, (!i) ? nullptr : &config, ranges);
 
   ImGui::StyleColorsLight();
+  ImGuiStyle& style = ImGui::GetStyle();
+  style.WindowBorderSize = 0.0;
+  style.WindowPadding = ImVec2(15, 15);
+  style.WindowRounding = 0.0f;
+  style.FramePadding = ImVec2(5, 5);
+  style.FrameRounding = 4.0f;
+  style.ItemSpacing = ImVec2(12, 8);
+  style.ItemInnerSpacing = ImVec2(8, 6);
+  style.IndentSpacing = 25.0f;
+  style.ScrollbarSize = 15.0f;
+  style.ScrollbarRounding = 9.0f;
+  style.GrabMinSize = 5.0f;
+  style.GrabRounding = 3.0f;
 
   ImGui_ImplSDL2_InitForOpenGL(wnd, glContext);
   ImGui_ImplOpenGL3_Init();
