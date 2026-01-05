@@ -675,8 +675,7 @@ namespace ifd {
         m_calledOpenPopup = true;
       }
 
-      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar | 
-        ((ngs::fs::environment_get_variable("IMGUI_DIALOG_NOBORDER") == std::to_string(1)) ? ImGuiWindowFlags_NoTitleBar : 0) | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove)) {
+      if (ImGui::BeginPopupModal(m_currentTitle.c_str(), &m_isOpen, ImGuiWindowFlags_NoScrollbar)) {
         m_renderFileDialog();
         ImGui::EndPopup();
       }
@@ -2045,4 +2044,5 @@ namespace ifd {
       m_isOpen = false;
   }
 }
+
 
