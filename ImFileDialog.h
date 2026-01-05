@@ -252,4 +252,3 @@ namespace ifd {
     return (const char *)&file_icon[0];
   }
 }
-
