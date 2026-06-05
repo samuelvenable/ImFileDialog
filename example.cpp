@@ -224,7 +224,7 @@ int main(int argc, char *argv[]) {
   }
 
   // imgui
-  static string ini;
+  static std::string ini;
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO(); (void)io;
   #if defined(_WIN32)
@@ -241,7 +241,7 @@ int main(int argc, char *argv[]) {
   if (ngs::fs::environment_get_variable("IMGUI_CONFIG_INI").empty())
     ngs::fs::environment_set_variable("IMGUI_CONFIG_INI", "filedialogs.ini");
   #if defined(_WIN32)
-  string config_path = ngs::fs::environment_expand_variables("${IMGUI_CONFIG_HOME}\\.config\\${IMGUI_CONFIG_FOLDER}");
+  std::string config_path = ngs::fs::environment_expand_variables("${IMGUI_CONFIG_HOME}\\.config\\${IMGUI_CONFIG_FOLDER}");
   if (!config_path.empty()) {
     if (!ngs::fs::directory_exists(config_path)) ngs::fs::directory_create(config_path);
     ini = ngs::fs::environment_expand_variables(config_path + "\\${IMGUI_CONFIG_INI}");
