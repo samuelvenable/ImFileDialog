@@ -249,7 +249,7 @@ int main(int argc, char *argv[]) {
     if ((attr & FILE_ATTRIBUTE_HIDDEN) == 0) SetFileAttributesW(ghc::filesystem::path(config_path).wstring().c_str(), attr | FILE_ATTRIBUTE_HIDDEN);
   }
   #else
-  string config_path = ngs::fs::environment_expand_variables("${IMGUI_CONFIG_HOME}/.config/${IMGUI_CONFIG_FOLDER}");
+  std::string config_path = ngs::fs::environment_expand_variables("${IMGUI_CONFIG_HOME}/.config/${IMGUI_CONFIG_FOLDER}");
   if (!config_path.empty()) {
     if (!ngs::fs::directory_exists(config_path)) ngs::fs::directory_create(config_path);
     ini = ngs::fs::environment_expand_variables(config_path + "/${IMGUI_CONFIG_INI}");
