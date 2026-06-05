@@ -59,25 +59,12 @@ make
 ```
 
 ## Screenshots
-**1. Table view:**
-
-![Table view](https://user-images.githubusercontent.com/30801537/107225799-8e5b3200-6a19-11eb-9847-ca2606205402.png)
-
-**2. Icon view:**
-
-![Icon view](https://user-images.githubusercontent.com/30801537/107225812-92874f80-6a19-11eb-9946-e7f1a183ce9b.png)
-
-**3. Zooming in:**
-
-![Zooming in](https://user-images.githubusercontent.com/30801537/107225830-9a46f400-6a19-11eb-8649-06de6287fdca.gif)
-
-**4. Favorites:**
-
-![Favorites](https://user-images.githubusercontent.com/30801537/107225862-a5018900-6a19-11eb-9bab-c6c928eab4af.gif)
-
-**5. Image preview + threading (CTRL + scroll):**
-
-![Table view](https://user-images.githubusercontent.com/30801537/107225891-afbc1e00-6a19-11eb-8551-6caa4c2173d1.gif)
+Windows:
+![win32.png](screenshots/win32.png)
+Macintosh:
+![macos.png](screenshots/macos.png)
+Ubuntu:
+![linux.png](screenshots/linux.png)
 
 ## LICENSE
 ImFileDialog is licensed under MIT license. See [LICENSE](./LICENSE) for more details. 
