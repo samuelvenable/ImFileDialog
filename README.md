@@ -59,11 +59,17 @@ make
 ```
 
 ## Screenshots
+
 Windows:
+
 ![win32.png](screenshots/win32.png)
+
 Macintosh:
+
 ![macos.png](screenshots/macos.png)
+
 Ubuntu:
+
 ![linux.png](screenshots/linux.png)
 
 ## LICENSE
