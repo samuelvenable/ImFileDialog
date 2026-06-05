@@ -73,4 +73,4 @@ Ubuntu:
 ![linux.png](screenshots/linux.png)
 
 ## LICENSE
-ImFileDialog is licensed under MIT license. See [LICENSE](./LICENSE) for more details. 
+ImFileDialog is licensed under MIT license. See [LICENSE.txt](./LICENSE.txt) for more details. 
