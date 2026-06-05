@@ -255,7 +255,7 @@ int main(int argc, char *argv[]) {
     ini = ngs::fs::environment_expand_variables(config_path + "/${IMGUI_CONFIG_INI}");
   }
   #endif
-  io.IniFilename = ((!ini.empty()) ? ini : nullptr);
+  io.IniFilename = ((!ini.empty()) ? ini.c_str() : nullptr);
   
   ImFontConfig config;
   config.MergeMode = true; 
