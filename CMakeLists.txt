@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 
-string(COMPARE NOT EQUAL CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" result)
-if(result)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+else()
     if(APPLE)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb -ObjC++")
     else() 
@@ -73,6 +73,7 @@ target_link_libraries(ImFileDialogExample PRIVATE ${OPENGL_LIBRARIES})
 if(WIN32)
 	# link specific win32 libraries
 	target_link_libraries(ImFileDialogExample PRIVATE shell32)
+
 elseif(UNIX AND NOT APPLE)
 	# link non-apple unix libraries
 	add_subdirectory(libs/lunasvg)
