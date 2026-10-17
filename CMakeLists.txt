@@ -73,7 +73,6 @@ target_link_libraries(ImFileDialogExample PRIVATE ${OPENGL_LIBRARIES})
 if(WIN32)
 	# link specific win32 libraries
 	target_link_libraries(ImFileDialogExample PRIVATE shell32)
-
 elseif(UNIX AND NOT APPLE)
 	# link non-apple unix libraries
 	add_subdirectory(libs/lunasvg)
