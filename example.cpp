@@ -350,7 +350,7 @@ int main(int argc, char *argv[]) {
     if (ImGui::Button("Open File"))
       ifd::FileDialog::Instance().Open("FileOpenDialog", "Open File", "PNG Image Files (*.png){.png},.*", false);
     if (ImGui::Button("Open Directory"))
-      ifd::FileDialog::Instance().Open("DirectorySelectDialog", "Select Directory", "");
+      ifd::FileDialog::Instance().Open("DirectoryOpenDialog", "Open Directory", "");
     if (ImGui::Button("Save File"))
       ifd::FileDialog::Instance().Save("FileSaveDialog", "Save File", "PNG Image Files (*.png){.png},.*");
     ImGui::End();
@@ -359,12 +359,12 @@ int main(int argc, char *argv[]) {
     if (ifd::FileDialog::Instance().IsDone("FileOpenDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         const std::vector<ghc::filesystem::path>& res = ifd::FileDialog::Instance().GetResults();
-        for (const auto& r : res) // ShaderOpenDialog supports multiselection
+        for (const auto& r : res) // FileOpenDialog supports multiselection
           printf("OPEN[%s]\n", r.u8string().c_str());
       }
       ifd::FileDialog::Instance().Close();
     }
-    if (ifd::FileDialog::Instance().IsDone("DirectorySelectDialog")) {
+    if (ifd::FileDialog::Instance().IsDone("DirectoryOpenDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         std::string res = ifd::FileDialog::Instance().GetResult().u8string();
         printf("DIRECTORY[%s]\n", res.c_str());
