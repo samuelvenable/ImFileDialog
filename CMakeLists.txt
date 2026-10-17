@@ -31,9 +31,9 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake)
 cl_repo()
 
 if(UNIX AND NOT APPLE)
-	set(CATALOG_REQ_TYPE STATIC)
-else()
 	set(CATALOG_REQ_TYPE SHARED)
+else()
+	set(CATALOG_REQ_TYPE STATIC)
 endif()
 
 # glew
