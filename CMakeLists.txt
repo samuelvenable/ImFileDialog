@@ -33,7 +33,7 @@ cl_repo()
 if(UNIX AND NOT APPLE)
 	set(CATALOG_REQ_TYPE STATIC)
 else()
-	set(CATALOG_REQ_TYPE DYNAMIC)
+	set(CATALOG_REQ_TYPE SHARED)
 endif()
 
 # glew
