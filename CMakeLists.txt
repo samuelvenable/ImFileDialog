@@ -30,7 +30,11 @@ find_package(OpenGL REQUIRED)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake)
 cl_repo()
 
-set(CATALOG_REQ_TYPE STATIC)
+if(UNIX AND NOT APPLE)
+	set(CATALOG_REQ_TYPE STATIC)
+else()
+	set(CATALOG_REQ_TYPE DYNAMIC)
+endif()
 
 # glew
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
