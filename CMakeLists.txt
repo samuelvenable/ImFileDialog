@@ -33,7 +33,7 @@ cl_repo()
 set(CATALOG_REQ_TYPE STATIC)
 
 # glew
-list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows")
+list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows-static")
 find_package(GLEW REQUIRED)
 
 # source code
