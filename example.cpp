@@ -348,15 +348,15 @@ int main(int argc, char *argv[]) {
     // Simple window
     ImGui::Begin("Control Panel");
     if (ImGui::Button("Open File"))
-      ifd::FileDialog::Instance().Open("ShaderOpenDialog", "Open a Shader", "Image Files (*.png *.jpg *.jpeg *.bmp *.tga){.png,.jpg,.jpeg,.bmp,.tga},.*", true);
+      ifd::FileDialog::Instance().Open("FileOpenDialog", "Open File", "PNG Image Files (*.png){.png},.*", false);
     if (ImGui::Button("Open Directory"))
-      ifd::FileDialog::Instance().Open("DirectoryOpenDialog", "Open a Directory", "");
+      ifd::FileDialog::Instance().Open("DirectorySelectDialog", "Select Directory", "");
     if (ImGui::Button("Save File"))
-      ifd::FileDialog::Instance().Save("ShaderSaveDialog", "Save a Shader", "Shader Files (*.sprj){.sprj},.*");
+      ifd::FileDialog::Instance().Save("FileSaveDialog", "Save File", "PNG Image Files (*.png){.png},.*");
     ImGui::End();
 
     // file dialogs
-    if (ifd::FileDialog::Instance().IsDone("ShaderOpenDialog")) {
+    if (ifd::FileDialog::Instance().IsDone("FileOpenDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         const std::vector<ghc::filesystem::path>& res = ifd::FileDialog::Instance().GetResults();
         for (const auto& r : res) // ShaderOpenDialog supports multiselection
@@ -364,14 +364,14 @@ int main(int argc, char *argv[]) {
       }
       ifd::FileDialog::Instance().Close();
     }
-    if (ifd::FileDialog::Instance().IsDone("DirectoryOpenDialog")) {
+    if (ifd::FileDialog::Instance().IsDone("DirectorySelectDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         std::string res = ifd::FileDialog::Instance().GetResult().u8string();
         printf("DIRECTORY[%s]\n", res.c_str());
       }
       ifd::FileDialog::Instance().Close();
     }
-    if (ifd::FileDialog::Instance().IsDone("ShaderSaveDialog")) {
+    if (ifd::FileDialog::Instance().IsDone("FileSaveDialog")) {
       if (ifd::FileDialog::Instance().HasResult()) {
         std::string res = ifd::FileDialog::Instance().GetResult().u8string();
         printf("SAVE[%s]\n", res.c_str());
