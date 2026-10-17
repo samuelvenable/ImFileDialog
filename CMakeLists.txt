@@ -4,22 +4,22 @@ project(ImFileDialogExample)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 else()
-    if(APPLE)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb -ObjC++")
-    else() 
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb")
-    endif()
+	if(APPLE)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb -ObjC++")
+	else() 
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb")
+	endif()
 endif()
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # cmake toolchain
 if(CMAKE_TOOLCHAIN_FILE)
-    include(${CMAKE_TOOLCHAIN_FILE})
+	include(${CMAKE_TOOLCHAIN_FILE})
 endif(CMAKE_TOOLCHAIN_FILE)
 
 # pkg
 if (UNIX)
-  find_package(PkgConfig REQUIRED)
+	find_package(PkgConfig REQUIRED)
 endif()
 
 # opengl
@@ -33,22 +33,22 @@ cl_repo()
 set(CATALOG_REQ_TYPE STATIC)
 
 # glew
-list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows-static")
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows-static")
+endif()
 find_package(GLEW REQUIRED)
 
 # source code
 set(SOURCES
-    example.cpp
-    ImFileDialog.cpp
-
-    libs/imgui/imgui.cpp
-    libs/imgui/imgui_widgets.cpp
-    libs/imgui/imgui_draw.cpp
-    libs/imgui/imgui_tables.cpp
-    libs/imgui/backends/imgui_impl_opengl3.cpp
-    libs/imgui/backends/imgui_impl_sdl2.cpp
-    libs/apifilesystem/filesystem.cpp
-	
+	example.cpp
+	ImFileDialog.cpp
+	libs/imgui/imgui.cpp
+	libs/imgui/imgui_widgets.cpp
+	libs/imgui/imgui_draw.cpp
+	libs/imgui/imgui_tables.cpp
+	libs/imgui/backends/imgui_impl_opengl3.cpp
+	libs/imgui/backends/imgui_impl_sdl2.cpp
+	libs/apifilesystem/filesystem.cpp	
 )
 
 # create executable
@@ -68,6 +68,9 @@ target_include_directories(ImFileDialogExample PRIVATE ${GLEW_INCLUDE_DIRS} ${OP
 target_include_directories(ImFileDialogExample PRIVATE libs libs/imgui)
 
 # link libraries
+if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
+	target_include_directories(ImFileDialogExample PRIVATE ${LIBUSB_LIBRARIES})
+endif()
 target_link_libraries(ImFileDialogExample PRIVATE ${OPENGL_LIBRARIES})
 
 if(WIN32)
