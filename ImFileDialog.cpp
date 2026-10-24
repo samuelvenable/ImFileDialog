@@ -56,25 +56,25 @@
 
 #include <stb/stb_image.h>
 
-#if (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(USE_BASIC_ICONS))
+#if (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
 #include <lunasvg.h>
 #endif
 
 #if defined(_WIN32)
 #include <windows.h>
-#if !defined(USE_BASIC_ICONS)
+#if !defined(IFD_USE_BASIC_ICONS)
 #include <shellapi.h>
 #endif
 #include <lmcons.h>
-#if !defined(USE_BASIC_ICONS)
+#if !defined(IFD_USE_BASIC_ICONS)
 #if defined(_MSC_VER)
 #pragma comment(lib, "Shell32.lib")
 #endif
 #endif
 #else
-#if ((defined(__MACH__) && defined(__APPLE__)) && !defined(USE_BASIC_ICONS))
+#if ((defined(__MACH__) && defined(__APPLE__)) && !defined(IFD_USE_BASIC_ICONS))
 #include <AppKit/AppKit.h>
-#elif (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(USE_BASIC_ICONS))
+#elif (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 #endif
@@ -87,7 +87,7 @@
 #define DEFAULT_ICON_SIZE 32
 #define PI 3.141592f
 
-#if (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(USE_BASIC_ICONS))
+#if (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
 using namespace lunasvg;
 #endif
 
@@ -981,7 +981,7 @@ namespace ifd {
   }
 
   void *FileDialog::m_getIcon(const ghc::filesystem::path& path) {
-    #if (defined(_WIN32) && !defined(USE_BASIC_ICONS))
+    #if (defined(_WIN32) && !defined(IFD_USE_BASIC_ICONS))
     if (m_icons.count(path.string()) > 0)
       return m_icons[path.string()];
 
@@ -1055,7 +1055,7 @@ namespace ifd {
     }
 
     return m_icons[pathU8];
-    #elif ((defined(__APPLE__) && defined(__MACH__)) && !defined(USE_BASIC_ICONS))
+    #elif ((defined(__APPLE__) && defined(__MACH__)) && !defined(IFD_USE_BASIC_ICONS))
     if (m_icons.count(path.string()) > 0)
       return m_icons[path.string()];
 
@@ -1150,7 +1150,7 @@ namespace ifd {
     [icon unlockFocus];
 
     return m_icons[pathU8];
-    #elif (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(USE_BASIC_ICONS))
+    #elif (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
     if (m_icons.count(path.string()) > 0)
       return m_icons[path.string()];
 
