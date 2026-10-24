@@ -72,7 +72,7 @@
 #endif
 #endif
 #else
-#if ((defined(__MACH__) && defined(__APPLE__)) && !defined(IFD_USE_BASIC_ICONS))
+#if (defined(__MACH__) && defined(__APPLE__))
 #include <AppKit/AppKit.h>
 #elif (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
 #include <gio/gio.h>
