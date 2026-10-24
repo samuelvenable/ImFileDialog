@@ -3,6 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	add_compile_definitions(IFD_USE_OPENGL)
 else()
 	if(APPLE)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DIFD_USE_OPENGL -g -ggdb -ObjC++")
