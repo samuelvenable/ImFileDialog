@@ -265,8 +265,9 @@ int main(int argc, char *argv[]) {
     if (ngs::fs::file_exists(ngs::fs::executable_get_directory() + std::string(fonts[i])))
       io.Fonts->AddFontFromFileTTF((ngs::fs::executable_get_directory() + std::string(fonts[i])).c_str(), 20, (!i) ? nullptr : &config, ranges);
 
-  ImGui::StyleColorsDark();
-  //ImGui::StyleColorsLight();
+  ImGui::StyleColorsLight();
+  //ImGui::StyleColorsDark();
+  //ImGui::StyleColorsClassic();
   ImGuiStyle& style = ImGui::GetStyle();
   style.WindowBorderSize = 0.0;
   style.WindowPadding = ImVec2(15, 15);
