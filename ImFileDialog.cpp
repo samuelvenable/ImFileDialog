@@ -550,7 +550,6 @@ namespace ifd {
     if (ngs::fs::environment_get_variable("IMGUI_FOLDER_ICON").empty())
       ngs::fs::environment_set_variable("IMGUI_FOLDER_ICON", configPath.string() + "\\folder_icon.png");
 
-
     // This PC
     FileTreeNode *thisPC = new FileTreeNode(IFD_THIS_PC);
     thisPC->Read = true;
