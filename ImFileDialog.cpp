@@ -543,8 +543,8 @@ namespace ifd {
         ngs::fs::file_text_close(fd);
       }
     }
-    stbi_write_png((configPath.string() + "\\file_icon.png").c_str(), 32, 32, 4, &file_icon[0], 32 * 4);
-    stbi_write_png((configPath.string() + "\\folder_icon.png").c_str(), 32, 32, 4, &folder_icon[0], 32 * 4);
+    stbi_write_png((configPath.string() + "\\file_icon.png").c_str(), 32, 32, 4, (const void *)&file_icon[0], 32 * 4);
+    stbi_write_png((configPath.string() + "\\folder_icon.png").c_str(), 32, 32, 4, (const void *)&folder_icon[0], 32 * 4);
     if (ngs::fs::environment_get_variable("IMGUI_FILE_ICON").empty())
       ngs::fs::environment_set_variable("IMGUI_FILE_ICON", configPath.string() + "\\file_icon.png");
     if (ngs::fs::environment_get_variable("IMGUI_FOLDER_ICON").empty())
@@ -611,8 +611,8 @@ namespace ifd {
         ngs::fs::file_text_close(fd);
       }
     }
-    stbi_write_png((configPath.string() + "/file_icon.png").c_str(), 32, 32, 4, &file_icon[0], 32 * 4);
-    stbi_write_png((configPath.string() + "/folder_icon.png").c_str(), 32, 32, 4, &folder_icon[0], 32 * 4);
+    stbi_write_png((configPath.string() + "/file_icon.png").c_str(), 32, 32, 4, (const void *)&file_icon[0], 32 * 4);
+    stbi_write_png((configPath.string() + "/folder_icon.png").c_str(), 32, 32, 4, (const void *)&folder_icon[0], 32 * 4);
     if (ngs::fs::environment_get_variable("IMGUI_FILE_ICON").empty())
       ngs::fs::environment_set_variable("IMGUI_FILE_ICON", configPath.string() + "/file_icon.png");
     if (ngs::fs::environment_get_variable("IMGUI_FOLDER_ICON").empty())
