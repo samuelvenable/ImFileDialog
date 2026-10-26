@@ -84,7 +84,7 @@
 
 #define ICON_SIZE ImGui::GetFont()->FontSize + 3
 #define GUI_ELEMENT_SIZE std::max(GImGui->FontSize + 10.f, 24.f)
-#define DEFAULT_ICON_SIZE 64
+#define DEFAULT_ICON_SIZE 32
 #define PI 3.141592f
 
 #if (((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun)) && !defined(IFD_USE_BASIC_ICONS))
