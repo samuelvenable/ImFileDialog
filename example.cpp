@@ -193,6 +193,23 @@ int main(int argc, char *argv[]) {
   SetConsoleOutputCP(CP_UTF8);
   #endif
 
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_DIALOG_THEME")) ngs::fs::environment_set_variable("IMGUI_DIALOG_THEME", std::to_string(2));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_TEXT_COLOR_0")) ngs::fs::environment_set_variable("IMGUI_TEXT_COLOR_0", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_TEXT_COLOR_1")) ngs::fs::environment_set_variable("IMGUI_TEXT_COLOR_1", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_TEXT_COLOR_2")) ngs::fs::environment_set_variable("IMGUI_TEXT_COLOR_2", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_HEAD_COLOR_0")) ngs::fs::environment_set_variable("IMGUI_HEAD_COLOR_0", std::to_string(0.35));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_HEAD_COLOR_1")) ngs::fs::environment_set_variable("IMGUI_HEAD_COLOR_1", std::to_string(0.55));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_HEAD_COLOR_2")) ngs::fs::environment_set_variable("IMGUI_HEAD_COLOR_2", std::to_string(0.55));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_AREA_COLOR_0")) ngs::fs::environment_set_variable("IMGUI_AREA_COLOR_0", std::to_string(0.18));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_AREA_COLOR_1")) ngs::fs::environment_set_variable("IMGUI_AREA_COLOR_1", std::to_string(0.18));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_AREA_COLOR_2")) ngs::fs::environment_set_variable("IMGUI_AREA_COLOR_2", std::to_string(0.18));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_BODY_COLOR_0")) ngs::fs::environment_set_variable("IMGUI_BODY_COLOR_0", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_BODY_COLOR_1")) ngs::fs::environment_set_variable("IMGUI_BODY_COLOR_1", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_BODY_COLOR_2")) ngs::fs::environment_set_variable("IMGUI_BODY_COLOR_2", std::to_string(1));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_POPS_COLOR_0")) ngs::fs::environment_set_variable("IMGUI_POPS_COLOR_0", std::to_string(0.07));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_POPS_COLOR_1")) ngs::fs::environment_set_variable("IMGUI_POPS_COLOR_1", std::to_string(0.07));
+  if (!ngs::fs::environment_get_variable_exists("IMGUI_POPS_COLOR_2")) ngs::fs::environment_set_variable("IMGUI_POPS_COLOR_2", std::to_string(0.07));
+
   // init sdl2
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_AUDIO) < 0) {
     printf("Failed to initialize SDL2\n");
