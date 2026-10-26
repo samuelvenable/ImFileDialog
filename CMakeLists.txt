@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 
+add_compile_definitions(IFD_USE_BASIC_ICONS)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	add_compile_definitions(IFD_USE_OPENGL)
 else()

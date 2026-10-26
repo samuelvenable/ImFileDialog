@@ -266,6 +266,7 @@ int main(int argc, char *argv[]) {
       io.Fonts->AddFontFromFileTTF((ngs::fs::executable_get_directory() + std::string(fonts[i])).c_str(), 20, (!i) ? nullptr : &config, ranges);
 
   ImGui::StyleColorsDark();
+  //ImGui::StyleColorsLight();
   ImGuiStyle& style = ImGui::GetStyle();
   style.WindowBorderSize = 0.0;
   style.WindowPadding = ImVec2(15, 15);
@@ -279,7 +280,7 @@ int main(int argc, char *argv[]) {
   style.ScrollbarRounding = 9.0f;
   style.GrabMinSize = 5.0f;
   style.GrabRounding = 3.0f;
-  style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+  /*style.Colors[ImGuiCol_WindowBg].w = 1.0f;
   style.Colors[ImGuiCol_WindowBg] = ImVec4{ 0.1f, 0.105f, 0.11f, 1.0f };
   style.Colors[ImGuiCol_Header] = ImVec4{ 0.2f, 0.205f, 0.21f, 1.0f };
   style.Colors[ImGuiCol_HeaderHovered] = ImVec4{ 0.3f, 0.305f, 0.31f, 1.0f };
@@ -297,7 +298,7 @@ int main(int argc, char *argv[]) {
   style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4{ 0.2f, 0.205f, 0.21f, 1.0f };
   style.Colors[ImGuiCol_TitleBg] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
   style.Colors[ImGuiCol_TitleBgActive] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
-  style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
+  style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };*/
   ImGui_ImplSDL2_InitForOpenGL(wnd, glContext);
   ImGui_ImplOpenGL3_Init();
 
