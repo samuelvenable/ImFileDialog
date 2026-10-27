@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
-set_target_properties(ImFileDialogExample PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # remove below line to use OS-default icon theme
 add_compile_definitions(IFD_USE_BASIC_ICONS)
@@ -85,10 +84,7 @@ cl_add_dep(ImFileDialogExample SDL2)
 cl_add_dep(ImFileDialogExample GLEW)
 
 # properties
-set_target_properties(ImFileDialogExample PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-)
+set_target_properties(ImFileDialogExample PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # include directories
 target_include_directories(ImFileDialogExample PRIVATE ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
