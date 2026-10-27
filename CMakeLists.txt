@@ -43,7 +43,7 @@ if(CMAKE_TOOLCHAIN_FILE)
 endif(CMAKE_TOOLCHAIN_FILE)
 
 # pkg
-if (UNIX)
+if(UNIX)
 	find_package(PkgConfig REQUIRED)
 endif()
 
