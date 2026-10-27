@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
+set(SDL_X11_XSCRNSAVER OFF)
 
 # remove below line to use OS-default icon theme
 add_compile_definitions(IFD_USE_BASIC_ICONS)
