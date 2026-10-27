@@ -90,7 +90,6 @@ elseif(UNIX AND NOT APPLE)
 	# link non-apple unix libraries
 	add_subdirectory(libs/lunasvg)
 	include_directories(libs/lunasvg/include)
-	find_package(PkgConfig REQUIRED)
 	pkg_search_module(PKG_GTK3 REQUIRED IMPORTED_TARGET gtk+-3.0)
 	pkg_search_module(PKG_GIO2 REQUIRED IMPORTED_TARGET gio-2.0)
 	pkg_search_module(PKG_GLIB2 REQUIRED IMPORTED_TARGET glib-2.0)
