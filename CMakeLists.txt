@@ -39,7 +39,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # cmake toolchain
 if(CMAKE_TOOLCHAIN_FILE)
-	include(${CMAKE_TOOLCHAIN_FILE})
+	include("${CMAKE_TOOLCHAIN_FILE}")
 endif(CMAKE_TOOLCHAIN_FILE)
 
 # pkg
@@ -52,13 +52,13 @@ set(OpenGL_GL_PREFERENCE GLVND CACHE STRING "Linux only: if GLVND, use the vendo
 set_property(CACHE OpenGL_GL_PREFERENCE PROPERTY STRINGS GLVND LEGACY)
 find_package(OpenGL REQUIRED)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake)
+include("${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake")
 cl_repo()
 
 if(UNIX AND NOT APPLE)
-	set(CATALOG_REQ_TYPE SHARED)
+	set(CATALOG_REQ_TYPE PREFER_SHARED)
 else()
-	set(CATALOG_REQ_TYPE STATIC)
+	set(CATALOG_REQ_TYPE PREFER_STATIC)
 endif()
 
 # glew
