@@ -4,6 +4,8 @@ project(ImFileDialogExample)
 if(UNIX AND NOT APPLE)
 	set(SDL_X11_XSCRNSAVER OFF)
 	set(SDL_X11_XINPUT OFF)
+	set(SDL_X11_XFIXES OFF)
+	set(SDL_X11_XTEST OFF)
 endif()
 
 # remove below line to use OS-default icon theme
