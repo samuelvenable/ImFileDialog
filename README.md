@@ -53,9 +53,9 @@ Name1 {.ext1,.ext2}, Name2 {.ext3,.ext4},.*
 ## Running the example
 If you want to test ImFileDialog, run these commands:
 ```sh
-cmake .
-cmake --build .
-./ImFileDialogExample
+git clone https://github.com/samuelvenable/ImFileDialog \
+~/ImFileDialog && cmake ~/ImFileDialog && cmake --build ~ImFileDialog \
+&& ~/ImFileDialog/ImFileDialogExample
 ```
 
 ## Screenshots
