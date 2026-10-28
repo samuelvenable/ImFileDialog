@@ -3,6 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(ImFileDialogExample)
 if(UNIX AND NOT APPLE)
 	set(SDL_X11_XSCRNSAVER OFF)
+	set(SDL_X11_XINPUT OFF)
 endif()
 
 # remove below line to use OS-default icon theme
