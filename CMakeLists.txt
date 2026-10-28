@@ -58,17 +58,12 @@ find_package(OpenGL REQUIRED)
 include("${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake")
 cl_repo()
 
-if(UNIX AND NOT APPLE)
+# openbsd is hostile toward static linking
+if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
 	set(CATALOG_REQ_TYPE PREFER_SHARED)
 else()
 	set(CATALOG_REQ_TYPE PREFER_STATIC)
 endif()
-
-# glew
-if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-	list(APPEND CMAKE_PREFIX_PATH "C:/vcpkg/packages/glew_x64-windows-static")
-endif()
-find_package(GLEW REQUIRED)
 
 # source code
 set(SOURCES
