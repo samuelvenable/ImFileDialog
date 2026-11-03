@@ -51,8 +51,6 @@ if(UNIX)
 endif()
 
 # opengl
-set(OpenGL_GL_PREFERENCE GLVND CACHE STRING "Linux only: if GLVND, use the vendor-neutral GL libraries (default). If LEGACY, use the legacy ones (might be necessary to have working optirun/primusrun)")
-set_property(CACHE OpenGL_GL_PREFERENCE PROPERTY STRINGS GLVND LEGACY)
 find_package(OpenGL REQUIRED)
 
 include("${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake")
