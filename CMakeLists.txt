@@ -7,10 +7,7 @@ if(UNIX AND NOT APPLE)
 	set(SDL_X11_XFIXES OFF)
 	set(SDL_X11_XTEST OFF)
 endif()
-
-# remove below line to use OS-default icon theme
 add_compile_definitions(IFD_USE_BASIC_ICONS)
-
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	add_compile_definitions(IFD_USE_OPENGL)
 else()
@@ -39,31 +36,20 @@ else()
 	endif()
 endif()
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
-# cmake toolchain
 if(CMAKE_TOOLCHAIN_FILE)
 	include("${CMAKE_TOOLCHAIN_FILE}")
 endif(CMAKE_TOOLCHAIN_FILE)
-
-# pkg
 if(UNIX)
 	find_package(PkgConfig REQUIRED)
 endif()
-
-# opengl
 find_package(OpenGL REQUIRED)
-
 include("${CMAKE_CURRENT_SOURCE_DIR}/cl-bootstrap.cmake")
 cl_repo()
-
-# openbsd is hostile toward static linking
 if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
 	set(CATALOG_REQ_TYPE PREFER_SHARED)
 else()
 	set(CATALOG_REQ_TYPE PREFER_STATIC)
 endif()
-
-# source code
 set(SOURCES
 	example.cpp
 	ImFileDialog.cpp
@@ -75,26 +61,16 @@ set(SOURCES
 	libs/imgui/backends/imgui_impl_sdl2.cpp
 	libs/apifilesystem/filesystem.cpp	
 )
-
-# create executable
 add_executable(ImFileDialogExample ${SOURCES})
-
 cl_add_dep(ImFileDialogExample SDL2)
 cl_add_dep(ImFileDialogExample GLEW)
-
-# properties
 set_target_properties(ImFileDialogExample PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-
-# include directories
 target_include_directories(ImFileDialogExample PRIVATE ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
 target_include_directories(ImFileDialogExample PRIVATE libs libs/imgui)
-
-# link libraries
 if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
 	target_include_directories(ImFileDialogExample PRIVATE ${LIBUSB_LIBRARIES})
 endif()
 target_link_libraries(ImFileDialogExample PRIVATE ${OPENGL_LIBRARIES})
-
 if(WIN32)
 	# link specific win32 libraries
 	target_link_libraries(ImFileDialogExample PRIVATE shell32)
