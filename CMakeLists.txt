@@ -7,6 +7,7 @@ if(UNIX AND NOT APPLE)
 	set(SDL_X11_XFIXES OFF)
 	set(SDL_X11_XTEST OFF)
 endif()
+# remove below line to use OS-default icon theme
 add_compile_definitions(IFD_USE_BASIC_ICONS)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	add_compile_definitions(IFD_USE_OPENGL)
@@ -72,10 +73,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
 endif()
 target_link_libraries(ImFileDialogExample PRIVATE ${OPENGL_LIBRARIES})
 if(WIN32)
-	# link specific win32 libraries
 	target_link_libraries(ImFileDialogExample PRIVATE shell32)
 elseif(UNIX AND NOT APPLE)
-	# link non-apple unix libraries
 	add_subdirectory(libs/lunasvg)
 	include_directories(libs/lunasvg/include)
 	pkg_search_module(PKG_GTK3 REQUIRED IMPORTED_TARGET gtk+-3.0)
