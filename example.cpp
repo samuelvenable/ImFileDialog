@@ -98,15 +98,14 @@ int main(int argc, char *argv[]) {
   
   ImFontConfig config;
   config.MergeMode = true; 
-  ImFont *font = nullptr;
   ImWchar ranges[] = { 0x0020, 0xFFFF, 0 };
   std::vector<std::string> fonts;
-  std::string font = ngs::fs::directory_contents_first(ngs::fs::executable_get_directory() + "fonts", "*.ttf;*.otf", false, false);
-  if (!font.empty()) {
-    fonts.push_back(font);
-    while (!font.empty()) {
-      font = ngs::fs::directory_contents_next();
-      fonts.push_back(font);
+  std::string current_font = ngs::fs::directory_contents_first(ngs::fs::executable_get_directory() + "fonts", "*.ttf;*.otf", false, false);
+  if (!current_font.empty()) {
+    fonts.push_back(current_font);
+    while (!current_font.empty()) {
+      current_font = ngs::fs::directory_contents_next();
+      fonts.push_back(current_font);
     }
   }
   ngs::fs::directory_contents_close();
